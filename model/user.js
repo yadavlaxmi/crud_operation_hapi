@@ -1,5 +1,4 @@
 
-
 const { Model } = require('objection');
 
 class User extends Model {
@@ -10,17 +9,16 @@ class User extends Model {
   static get jsonSchema() {
     return {
       type: 'object',
-      required: ['username', 'email', 'name', 'state', 'number'],
+      required: ['email', 'name', 'state', 'phone_number'],
 
       properties: {
         id: { type: 'integer' },
-        username: { type: 'string', minLength: 1, maxLength: 255 },
         email: { type: 'string', format: 'email' },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         state: { type: 'string', minLength: 1, maxLength: 100 },
-        number: { type: 'string', minLength: 1, maxLength: 20 },
-        created_at: { type: 'timestamp' },
-        updated_at: { type: 'timestamp' },
+        phone_number: { type: 'integer' }, 
+        created_at: { type: 'string', format: 'date-time' },
+        updated_at: { type: 'string', format: 'date-time' },
       }
     };
   }
